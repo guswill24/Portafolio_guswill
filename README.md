@@ -72,7 +72,7 @@ npm run dev
 Este proyecto está licenciado bajo **MIT License**.
 
 ## 📞 Contacto
-📧 Email: gustavo.sanchez@example.com  
+📧 Email: guswillsan@gmail.com  
 💼 LinkedIn: [linkedin.com/in/gustavo-sanchez](https://www.linkedin.com/)  
 📌 Portafolio: [gustavosanchez.com](https://gustavosanchez.com/)
 
