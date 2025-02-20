@@ -1,9 +1,6 @@
-import React from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Navbar, Nav } from "react-bootstrap";
+import { Container, Navbar, Nav, Dropdown } from "react-bootstrap";
 import { AnimatePresence, motion } from "framer-motion";
-
 
 function Layout() {
   const location = useLocation();
@@ -11,14 +8,25 @@ function Layout() {
   return (
     <div className="d-flex flex-column vh-100">
       {/* Cabecera fija */}
-      <Navbar bg="dark" variant="dark" expand="lg" className="w-100">
-        <Container>
-          <Navbar.Brand href="#">🌟 Mi Portafolio</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
+      <Navbar expand="lg" bg="light" variant="light">
+        <Container fluid>
+          <Navbar.Brand href="#">Portafolio</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarSupportedContent" />
+          <Navbar.Collapse id="navbarSupportedContent">
+            <Nav className="me-auto">
               <Nav.Link href="/">Inicio</Nav.Link>
               <Nav.Link href="/proyectos">Proyectos</Nav.Link>
+              {/* Menú desplegable con React-Bootstrap */}
+              <Dropdown>
+                <Dropdown.Toggle as={Nav.Link} id="dropdown-custom">
+                  Prácticas
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item href="/ejercicio1">Práctica 1</Dropdown.Item>
+                  <Dropdown.Item href="#">Práctica 2</Dropdown.Item>
+                  <Dropdown.Item href="#">Práctica 3</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
               <Nav.Link href="/contacto">Contacto</Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -41,9 +49,7 @@ function Layout() {
       </Container>
 
       {/* Pie de página fijo */}
-      <footer className="text-center py-3 bg-dark text-white w-100">
-        
-      </footer>
+      <footer className="text-center py-3 bg-dark text-white w-100"></footer>
     </div>
   );
 }

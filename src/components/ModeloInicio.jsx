@@ -164,13 +164,15 @@ export default function ModeloInicio() {
 
     if (clickedObject === "chair") {
       handleChairClick();
+      console.log("🌿 Click en silla");
     } else if (clickedObject === "speaker") {
       handleSpeakerClick();
+      console.log("🌿 Click en Speaker");
     } else if (clickedObject === "plant") {
       console.log("🌿 Click en planta: restaurando silla");
       handlePlantClick();
     } else if (clickedObject === "desktop-plane-1") {
-      console.log("🖥️ Click en monitor");
+      console.log("🖥️ Click en monitor 1");
     }
   };
 
