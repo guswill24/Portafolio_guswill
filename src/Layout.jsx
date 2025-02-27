@@ -23,8 +23,22 @@ function Layout() {
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item href="/ejercicio1">Práctica 1</Dropdown.Item>
-                  <Dropdown.Item href="#">Práctica 2</Dropdown.Item>
-                  <Dropdown.Item href="#">Práctica 3</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio2">Transformar Objetos</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio3">requestAnimationFrame</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio4">Cámaras</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio5">Pantalla Completa</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio6">Geometrías</Dropdown.Item> 
+                  <Dropdown.Item href="/ejercicio7">Texturas</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio8">Plano y Figuras</Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
+              <Dropdown>
+                <Dropdown.Toggle as={Nav.Link} id="dropdown-custom">
+                  Laboratorio
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  <Dropdown.Item href="/">Laboratorio 1</Dropdown.Item>
+                  <Dropdown.Item href="/">Laboratorio 2</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
               <Nav.Link href="/contacto">Contacto</Nav.Link>
