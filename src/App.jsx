@@ -17,6 +17,7 @@ import Ejercicio9b from "./pages/Ejercicio9b";
 import Laboratorio1 from "./pages/Laboratorio1";
 import Laboratorio2 from "./pages/Laboratorio2";
 import Laboratorio3 from "./pages/Laboratorio3";
+import Laboratorio4 from "./pages/Laboratorio4";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path="laboratorio1" element={<Laboratorio1 />} />
           <Route path="laboratorio2" element={<Laboratorio2 />} />          
           <Route path="laboratorio3" element={<Laboratorio3 />} />
+          <Route path="laboratorio4" element={<Laboratorio4 />} />
         </Route>
       </Routes>
     </Router>

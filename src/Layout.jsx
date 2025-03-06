@@ -42,6 +42,7 @@ function Layout() {
                   <Dropdown.Item href="/laboratorio1">Laboratorio 1</Dropdown.Item>
                   <Dropdown.Item href="/laboratorio2">Laboratorio 2</Dropdown.Item>
                   <Dropdown.Item href="/laboratorio3">Laboratorio 3</Dropdown.Item>
+                  <Dropdown.Item href="/laboratorio4">Laboratorio 4</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
               <Nav.Link href="/contacto">Contacto</Nav.Link>
