@@ -8,7 +8,7 @@ import useAudioManager from "../hooks/useAudioManager";
 
 export default function ModeloPractica() {
   // ================= CARGA DE MODELO Y TEXTURAS ===================
-  const gltf = useLoader(GLTFLoader, "/assets/forma_practica.glb");
+  const gltf = useLoader(GLTFLoader, "/assets/model.glb");
   const [bakedTexture, pictureTexture, publicidadTexture] = useLoader(TextureLoader, [
     "/assets/baked.jpg",
     "/assets/picture2.png",
