@@ -14,11 +14,13 @@ import Ejercicio7 from "./pages/Ejercicio7";
 import Ejercicio8 from "./pages/Ejercicio8";
 import Ejercicio9a from "./pages/Ejercicio9a";
 import Ejercicio9b from "./pages/Ejercicio9b";
+import Luces from "./pages/Luces";
+import Sombras from "./pages/Sombras";
+import Particulas from "./pages/Particulas";
 import Laboratorio1 from "./pages/Laboratorio1";
 import Laboratorio2 from "./pages/Laboratorio2";
 import Laboratorio3 from "./pages/Laboratorio3";
 import Laboratorio4 from "./pages/Laboratorio4";
-
 
 function App() {
   return (
@@ -37,11 +39,15 @@ function App() {
           <Route path="ejercicio7" element={<Ejercicio7 />} />
           <Route path="ejercicio8" element={<Ejercicio8 />} />
           <Route path="ejercicio9a" element={<Ejercicio9a />} />
-          <Route path="ejercicio9b" element={<Ejercicio9b />} />          
+          <Route path="ejercicio9b" element={<Ejercicio9b />} />   
+          <Route path="luces" element={<Luces />} /> 
+  
+          <Route path="particulas" element={<Particulas />} />      
           <Route path="laboratorio1" element={<Laboratorio1 />} />
           <Route path="laboratorio2" element={<Laboratorio2 />} />          
           <Route path="laboratorio3" element={<Laboratorio3 />} />
           <Route path="laboratorio4" element={<Laboratorio4 />} />
+          <Route path="sombras" element={<Sombras />} /> 
         </Route>
       </Routes>
     </Router>

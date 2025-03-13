@@ -32,6 +32,8 @@ function Layout() {
                   <Dropdown.Item href="/ejercicio8">Plano y Figuras</Dropdown.Item>
                   <Dropdown.Item href="/ejercicio9a">Agrupacion de Objetos - React</Dropdown.Item>
                   <Dropdown.Item href="/ejercicio9b">Agrupacion de Objetos - Three.js</Dropdown.Item>
+                  <Dropdown.Item href="/luces">Luces</Dropdown.Item>
+                  <Dropdown.Item href="/particulas">Partículas</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
               <Dropdown>
@@ -65,9 +67,6 @@ function Layout() {
           </motion.div>
         </AnimatePresence>
       </Container>
-
-      {/* Pie de página fijo */}
-      <footer className="text-center py-3 bg-dark text-white w-100"></footer>
     </div>
   );
 }
