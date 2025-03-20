@@ -34,6 +34,7 @@ function Layout() {
                   <Dropdown.Item href="/ejercicio9b">Agrupacion de Objetos - Three.js</Dropdown.Item>
                   <Dropdown.Item href="/luces">Luces</Dropdown.Item>
                   <Dropdown.Item href="/particulas">Partículas</Dropdown.Item>
+                  <Dropdown.Item href="/manejofisicas">Físicas</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
               <Dropdown>

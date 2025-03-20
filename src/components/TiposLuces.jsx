@@ -1,9 +1,14 @@
 import React, { useEffect, useRef } from 'react';
+import { useLoader } from "@react-three/fiber";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-//import GUI from 'lil-gui';
+import GUI from 'lil-gui'; //controlar la intensidad de la luz ambiental
+import { RectAreaLightHelper } from 'three/examples/jsm/helpers/RectAreaLightHelper.js';
+import { RectAreaLightUniformsLib } from 'three/examples/jsm/lights/RectAreaLightUniformsLib.js';
 
 const ThreeScene = () => {
+    const gltf = useLoader(GLTFLoader, "/assets/RobotExpressive.glb");
     const mountRef = useRef(null);
 
     useEffect(() => {
@@ -36,17 +41,69 @@ const ThreeScene = () => {
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         mountRef.current.appendChild(renderer.domElement);
 
+/*
+########################Codigo de prueba
+*/
+
+// Agregar el modelo GLB a la escena
+scene.add(gltf.scene);
+
+// Asegurar que el modelo se renderice con las luces y sombras
+gltf.scene.traverse((child) => {
+    if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+    }
+});
+
+// Posicionar el modelo en la escena (ajústalo según sea necesario)
+gltf.scene.position.set(0.5, -0.7, -1);
+gltf.scene.scale.set(0.3, 0.3, 0.3);
+/**
+ * ##########################Fin codigo de prueba */
+
+
+        
         /**
          * Lights
          */
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Color blanco, intensidad 0.5
+        scene.add(ambientLight);
 
+        const directionalLight = new THREE.DirectionalLight(0xffcc00, 0.7);
+        directionalLight.position.set(1, 1, 1);
+        scene.add(directionalLight);
+
+        const hemisphereLight = new THREE.HemisphereLight(0x0000ff, 0xff0000, 0.6);
+        scene.add(hemisphereLight);
+
+        const pointLight = new THREE.PointLight(0xff9000, 1, 10, 2);
+        pointLight.position.set(0, 1, 1);
+        scene.add(pointLight);
+
+        const spotLight = new THREE.SpotLight(0x78ff00, 2, 10, Math.PI * 0.1, 0.25, 1);
+        spotLight.position.set(0, 2, 3);
+        scene.add(spotLight);
+
+        RectAreaLightUniformsLib.init();
+        const rectAreaLight = new THREE.RectAreaLight(0x4e00ff, 5, 3, 3);
+        rectAreaLight.position.set(-1.5, 0, 1.5);
+        scene.add(rectAreaLight);
 
         /**
          * Helpers
          */
- 
-        
+        const hemisphereLightHelper = new THREE.HemisphereLightHelper(hemisphereLight, 0.2);
+        scene.add(hemisphereLightHelper);
 
+        const directionalLightHelper = new THREE.DirectionalLightHelper(directionalLight, 0.2);
+        scene.add(directionalLightHelper);
+
+        const pointLightHelper = new THREE.PointLightHelper(pointLight, 0.2);
+        scene.add(pointLightHelper);
+
+        const rectAreaLightHelper = new RectAreaLightHelper(rectAreaLight);
+        scene.add(rectAreaLightHelper);
         /**
          * Objects
          */
@@ -74,8 +131,8 @@ const ThreeScene = () => {
         /**
          * GUI (Lil-GUI)
          */
-        //const gui = new GUI();
-        //gui.add(ambientLight, 'intensity').min(0).max(3).step(0.001);
+        const gui = new GUI();
+        gui.add(ambientLight, 'intensity').min(0).max(3).step(0.001);
 
         /**
          * Resize Handling
@@ -91,6 +148,8 @@ const ThreeScene = () => {
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         };
         window.addEventListener('resize', handleResize);
+
+
 
         /**
          * Animate
@@ -117,13 +176,13 @@ const ThreeScene = () => {
          * Cleanup on Unmount
          */
         return () => {
-            //gui.destroy();
+            gui.destroy();
             window.removeEventListener('resize', handleResize);
             mountRef.current.removeChild(renderer.domElement);
         };
     }, []);
 
-    return <div ref={mountRef} style={{ width: '100vw', height: '100vh' }} />;
+    return <div ref={mountRef} />;
 };
 
 export default ThreeScene;

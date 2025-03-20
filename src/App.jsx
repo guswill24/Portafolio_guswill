@@ -17,6 +17,7 @@ import Ejercicio9b from "./pages/Ejercicio9b";
 import Luces from "./pages/Luces";
 import Sombras from "./pages/Sombras";
 import Particulas from "./pages/Particulas";
+import ManejoFisicas from "./components/ManejoFisicas";
 import Laboratorio1 from "./pages/Laboratorio1";
 import Laboratorio2 from "./pages/Laboratorio2";
 import Laboratorio3 from "./pages/Laboratorio3";
@@ -41,7 +42,7 @@ function App() {
           <Route path="ejercicio9a" element={<Ejercicio9a />} />
           <Route path="ejercicio9b" element={<Ejercicio9b />} />   
           <Route path="luces" element={<Luces />} /> 
-  
+          <Route path="manejofisicas" element={<ManejoFisicas />} />
           <Route path="particulas" element={<Particulas />} />      
           <Route path="laboratorio1" element={<Laboratorio1 />} />
           <Route path="laboratorio2" element={<Laboratorio2 />} />          

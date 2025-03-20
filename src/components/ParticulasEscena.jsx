@@ -44,16 +44,54 @@ const ThreeParticles = () => {
          * Texturas
          */
         const textureLoader = new THREE.TextureLoader();
+        const particuleTexture = textureLoader.load("static/textures/8.png");
+
+        /**
+         * Particulas   
+         */
+        // Geometría de partículas en forma de esfera
+        const particlesGeometry = new THREE.BufferGeometry();
+        const count = 20000; // Cantidad de partículas
+        const positions = new Float32Array(count * 3); // Posiciones de las partículas
+        const colors = new Float32Array(count * 3); // Colores de las partículas
+        for (let i = 0; i < count * 3; i++) {
+            positions[i] = (Math.random() - 0.5) * 10; // Posiciones aleatorias
+            colors[i] = Math.random(); // Colores aleatorios
+        }
+        particlesGeometry.setAttribute(
+            "position",
+            new THREE.BufferAttribute(positions, 3)
+        );
+        particlesGeometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+
+        //console.log(particlesGeometry.attributes.position.array);
+        // Material de las partículas
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.1, // Tamaño de las partículas
+            sizeAttenuation: true,
+            //color: new THREE.Color('#ff88cc'),
+            alphaMap: particuleTexture,
+            transparent: true,
+            //alphaTest: 0.001,
+            //depthTest: false,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending,
+            vertexColors: true,
+        });
+
+
+        // Crear y agregar partículas
+        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particles);
 
         /**
          * Cubo
          */
-        const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
-        const cubeMaterial = new THREE.MeshBasicMaterial({
-            map: textureLoader.load("/static/textures/1.png"),
-        });
+        const cubeGeometry = new THREE.BoxGeometry();
+        const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
         const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
         scene.add(cube);
+
         /**
          * Luces
          */
@@ -83,6 +121,15 @@ const ThreeParticles = () => {
         const clock = new THREE.Clock();
         const animate = () => {
             const elapsedTime = clock.getElapsedTime();
+
+            for (let i = 0; i < count; i++) {
+                const i3 = i * 3;
+                const x = particlesGeometry.attributes.position.array[i3];
+                particlesGeometry.attributes.position.array[i3 + 1] = Math.sin(elapsedTime + x);
+            }
+
+            particlesGeometry.attributes.position.needsUpdate = true;
+            //update controls
             controls.update();
             //renderizar
             renderer.render(scene, camera);
