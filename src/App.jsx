@@ -22,6 +22,11 @@ import Laboratorio1 from "./pages/Laboratorio1";
 import Laboratorio2 from "./pages/Laboratorio2";
 import Laboratorio3 from "./pages/Laboratorio3";
 import Laboratorio4 from "./pages/Laboratorio4";
+import Laboratorio5 from "./pages/Laboratorio5";
+import LeapMotionLab from "./pages/Lab_6_leapmotion";
+import FisicasVehiculo from "./pages/Fisicas_Vehiculo";
+import ImporModels from "./pages/ImporModels";
+
 
 function App() {
   return (
@@ -43,14 +48,18 @@ function App() {
           <Route path="ejercicio9b" element={<Ejercicio9b />} />   
           <Route path="luces" element={<Luces />} /> 
           <Route path="manejofisicas" element={<ManejoFisicas />} />
+          <Route path="impormodels" element={<ImporModels/>} />
           <Route path="particulas" element={<Particulas />} />      
           <Route path="laboratorio1" element={<Laboratorio1 />} />
           <Route path="laboratorio2" element={<Laboratorio2 />} />          
           <Route path="laboratorio3" element={<Laboratorio3 />} />
           <Route path="laboratorio4" element={<Laboratorio4 />} />
+          <Route path="laboratorio5" element={<Laboratorio5 />} />
+          <Route path="leapmotionlab" element={<LeapMotionLab />} />
+          <Route path="fisicasvehiculo" element={<FisicasVehiculo/>} />
           <Route path="sombras" element={<Sombras />} /> 
         </Route>
-      </Routes>
+      </Routes> 
     </Router>
   );
 }

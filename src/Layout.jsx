@@ -35,6 +35,7 @@ function Layout() {
                   <Dropdown.Item href="/luces">Luces</Dropdown.Item>
                   <Dropdown.Item href="/particulas">Partículas</Dropdown.Item>
                   <Dropdown.Item href="/manejofisicas">Físicas</Dropdown.Item>
+                  <Dropdown.Item href="/impormodels">Importar Modelos</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
               <Dropdown>
@@ -42,10 +43,13 @@ function Layout() {
                   Laboratorio
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item href="/laboratorio1">Laboratorio 1</Dropdown.Item>
-                  <Dropdown.Item href="/laboratorio2">Laboratorio 2</Dropdown.Item>
-                  <Dropdown.Item href="/laboratorio3">Laboratorio 3</Dropdown.Item>
-                  <Dropdown.Item href="/laboratorio4">Laboratorio 4</Dropdown.Item>
+                  <Dropdown.Item href="/laboratorio1">Albedo - Alpha - Transparent</Dropdown.Item>
+                  <Dropdown.Item href="/laboratorio2">Ayudantes</Dropdown.Item>
+                  <Dropdown.Item href="/laboratorio3">Mesa con paredes</Dropdown.Item>
+                  <Dropdown.Item href="/laboratorio4">GUI - Esferas - Cajas</Dropdown.Item>
+                  <Dropdown.Item href="/laboratorio5">Paredes y Techo - Físicas</Dropdown.Item>
+                  <Dropdown.Item href="/leapmotionlab">Físicas - BroadFase - Sonidos</Dropdown.Item>
+                  <Dropdown.Item href="/fisicasvehiculo">Físicas - Vehiculo</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
               <Nav.Link href="/contacto">Contacto</Nav.Link>
