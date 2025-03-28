@@ -26,6 +26,7 @@ import Laboratorio5 from "./pages/Laboratorio5";
 import LeapMotionLab from "./pages/Lab_6_leapmotion";
 import FisicasVehiculo from "./pages/Fisicas_Vehiculo";
 import ImporModels from "./pages/ImporModels";
+import FisicasVehiculo2 from "./pages/Fisicas_Vehiculo_2";
 
 
 function App() {
@@ -57,6 +58,7 @@ function App() {
           <Route path="laboratorio5" element={<Laboratorio5 />} />
           <Route path="leapmotionlab" element={<LeapMotionLab />} />
           <Route path="fisicasvehiculo" element={<FisicasVehiculo/>} />
+          <Route path="fisicasvehiculo2" element={<FisicasVehiculo2/>} />
           <Route path="sombras" element={<Sombras />} /> 
         </Route>
       </Routes> 

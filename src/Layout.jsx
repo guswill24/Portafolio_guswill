@@ -50,6 +50,7 @@ function Layout() {
                   <Dropdown.Item href="/laboratorio5">Paredes y Techo - Físicas</Dropdown.Item>
                   <Dropdown.Item href="/leapmotionlab">Físicas - BroadFase - Sonidos</Dropdown.Item>
                   <Dropdown.Item href="/fisicasvehiculo">Físicas - Vehiculo</Dropdown.Item>
+                  <Dropdown.Item href="/fisicasvehiculo2">Físicas - Vehiculo - v2</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
               <Nav.Link href="/contacto">Contacto</Nav.Link>
