@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
@@ -6,9 +6,6 @@ import * as CANNON from 'cannon-es';
 
 const Lab_7 = () => {
     const mountRef = useRef(null);
-    const [roofEnabled, setRoofEnabled] = useState(false);
-    const [soundEnabled, setSoundEnabled] = useState(true);
-    const [lightsEnabled, setLightsEnabled] = useState(true);
     const soundUnlocked = useRef(false);
 
     useEffect(() => {
@@ -44,14 +41,7 @@ const Lab_7 = () => {
         pointLight.position.set(0, 3, 0);
         scene.add(pointLight);
 
-        const toggleLights = (enabled) => {
-            ambientLight.intensity = enabled ? 0.5 : 0;
-            directionalLight.intensity = enabled ? 1 : 0;
-            pointLight.intensity = enabled ? 1 : 0;
-        };
-        toggleLights(lightsEnabled);
-
-        // Piso azul
+        // Piso
         const floor = new THREE.Mesh(
             new THREE.PlaneGeometry(20, 20),
             new THREE.MeshStandardMaterial({ color: 'blue', metalness: 0.5, roughness: 0.5 })
@@ -79,10 +69,9 @@ const Lab_7 = () => {
 
         const carBody = new CANNON.Body({ mass: 2, position: new CANNON.Vec3(0.75, 1, 0) });
         carBody.addShape(new CANNON.Box(new CANNON.Vec3(0.75, 0.5, 1.5)));
-        carBody.fixedRotation = true; // Volvemos a ponerlo
+        carBody.fixedRotation = true;
         carBody.updateMassProperties();
         world.addBody(carBody);
-        
 
         // Cubo
         const boxBody = new CANNON.Body({ mass: 2, position: new CANNON.Vec3(0, 1, 0) });
@@ -95,11 +84,11 @@ const Lab_7 = () => {
         );
         scene.add(boxMesh);
 
-        // Colisión sonido
+        // Sonido al colisionar
         boxBody.addEventListener('collide', (e) => {
-            if (e.body === carBody && soundEnabled && soundUnlocked.current) {
+            if (e.body === carBody && soundUnlocked.current) {
                 collisionSound.currentTime = 0;
-                collisionSound.play().catch(err => console.error('Sound error:', err));
+                collisionSound.play().catch((err) => console.error('Sound error:', err));
             }
         });
 
@@ -108,13 +97,13 @@ const Lab_7 = () => {
             ArrowUp: false,
             ArrowDown: false,
             ArrowLeft: false,
-            ArrowRight: false
+            ArrowRight: false,
         };
 
         const onKeyDown = (e) => {
             if (keys.hasOwnProperty(e.key)) {
                 keys[e.key] = true;
-                soundUnlocked.current = true; // Desbloquea sonido
+                soundUnlocked.current = true;
             }
         };
 
@@ -139,7 +128,8 @@ const Lab_7 = () => {
         let animationId;
         const tick = () => {
             const speed = 10;
-            let vx = 0, vz = 0;
+            let vx = 0,
+                vz = 0;
             if (keys.ArrowUp) vz -= speed;
             if (keys.ArrowDown) vz += speed;
             if (keys.ArrowLeft) vx -= speed;
@@ -172,22 +162,9 @@ const Lab_7 = () => {
             cancelAnimationFrame(animationId);
             mountRef.current.removeChild(renderer.domElement);
         };
-    }, [roofEnabled, soundEnabled, lightsEnabled]);
+    }, []);
 
-    return (
-        <div>
-            <button onClick={() => setRoofEnabled(!roofEnabled)}>
-                {roofEnabled ? 'Disable Roof' : 'Enable Roof'}
-            </button>
-            <button onClick={() => setSoundEnabled(!soundEnabled)}>
-                {soundEnabled ? 'Disable Sound' : 'Enable Sound'}
-            </button>
-            <button onClick={() => setLightsEnabled(!lightsEnabled)}>
-                {lightsEnabled ? 'Turn Off Lights' : 'Turn On Lights'}
-            </button>
-            <div ref={mountRef} style={{ width: '100vw', height: '100vh' }} />
-        </div>
-    );
+    return <div ref={mountRef} style={{ width: '100vw', height: '100vh' }} />;
 };
 
 export default Lab_7;
