@@ -8,34 +8,25 @@ function Layout() {
   return (
     <div className="d-flex flex-column vh-100">
       {/* Cabecera fija */}
-      <Navbar expand="lg" bg="light" variant="light">
+      <Navbar expand="lg" bg="dark" variant="dark"> {/* 🔥 Navbar también en oscuro */}
         <Container fluid>
           <Navbar.Brand href="#">Portafolio</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarSupportedContent" />
           <Navbar.Collapse id="navbarSupportedContent">
             <Nav className="me-auto">
               <Nav.Link href="/">Inicio</Nav.Link>
-              <Nav.Link href="/proyectos">Proyectos</Nav.Link>
               {/* Menú desplegable con React-Bootstrap */}
               <Dropdown>
                 <Dropdown.Toggle as={Nav.Link} id="dropdown-custom">
                   Prácticas
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
-                  <Dropdown.Item href="/ejercicio1">Práctica 1</Dropdown.Item>
-                  <Dropdown.Item href="/ejercicio2">Transformar Objetos</Dropdown.Item>
-                  <Dropdown.Item href="/ejercicio3">requestAnimationFrame</Dropdown.Item>
-                  <Dropdown.Item href="/ejercicio4">Cámaras</Dropdown.Item>
-                  <Dropdown.Item href="/ejercicio5">Pantalla Completa</Dropdown.Item>
-                  <Dropdown.Item href="/ejercicio6">Geometrías</Dropdown.Item> 
-                  <Dropdown.Item href="/ejercicio7">Texturas</Dropdown.Item>
-                  <Dropdown.Item href="/ejercicio8">Plano y Figuras</Dropdown.Item>
-                  <Dropdown.Item href="/ejercicio9a">Agrupacion de Objetos - React</Dropdown.Item>
-                  <Dropdown.Item href="/ejercicio9b">Agrupacion de Objetos - Three.js</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio1">Geometrías</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio2">Texturas</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio3">Plano y Figuras</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio4">Agrupacion de Objetos - React</Dropdown.Item>
+                  <Dropdown.Item href="/ejercicio5">Agrupacion de Objetos - Three.js</Dropdown.Item>
                   <Dropdown.Item href="/luces">Luces</Dropdown.Item>
-                  <Dropdown.Item href="/particulas">Partículas</Dropdown.Item>
-                  <Dropdown.Item href="/manejofisicas">Físicas</Dropdown.Item>
-                  <Dropdown.Item href="/impormodels">Importar Modelos</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
               <Dropdown>
@@ -44,23 +35,22 @@ function Layout() {
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   <Dropdown.Item href="/laboratorio1">Albedo - Alpha - Transparent</Dropdown.Item>
-                  <Dropdown.Item href="/laboratorio2">Ayudantes</Dropdown.Item>
-                  <Dropdown.Item href="/laboratorio3">Mesa con paredes</Dropdown.Item>
-                  <Dropdown.Item href="/laboratorio4">GUI - Esferas - Cajas</Dropdown.Item>
-                  <Dropdown.Item href="/laboratorio5">Paredes y Techo - Físicas</Dropdown.Item>
-                  <Dropdown.Item href="/leapmotionlab">Físicas - BroadFase - Sonidos</Dropdown.Item>
-                  <Dropdown.Item href="/fisicasvehiculo">Físicas - Vehiculo</Dropdown.Item>
-                  <Dropdown.Item href="/fisicasvehiculo2">Físicas - Vehiculo - v2</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
-              <Nav.Link href="/contacto">Contacto</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
 
       {/* Contenedor de las páginas con transiciones suaves */}
-      <Container fluid className="flex-grow-1 p-4">
+      <Container
+        fluid
+        className="flex-grow-1 p-4"
+        style={{
+          backgroundColor: "black", 
+          color: "white",          
+        }}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

@@ -3,20 +3,21 @@ import React, { useRef, useEffect, useState } from "react";
 import { TextureLoader } from "three";
 
 const Objgrupo = () => {
-  // Cargar las texturas para cada figura (asegúrate de tener estos archivos en /assets)
+
   const cubeTexture = useLoader(TextureLoader, "/assets/texture1.jpg");
   const sphereTexture = useLoader(TextureLoader, "/assets/texture2.jpg");
   const coneTexture = useLoader(TextureLoader, "/assets/alpha.png");
   const boxRef = useRef();
   const esfeRef = useRef();
   const groupRef = useRef();
+  
   //Controla rotacion de la esfera
   const [rotation, setRotation] = useState(0.01);
   useEffect(() => {
     let animationFrameId;
     const animate = () => {
       if (groupRef.current) {
-        //groupRef.current.rotation.x += rotation;
+
         groupRef.current.rotation.y += rotation;
         console.log("useEffect:", rotation);
       }

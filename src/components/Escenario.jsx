@@ -3,7 +3,6 @@ import { Canvas, useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 
 const Escenario = () => {
-  // Cargar las texturas para cada figura (asegúrate de tener estos archivos en /assets)
   const cubeTexture = useLoader(TextureLoader, "/assets/texture1.jpg");
   const sphereTexture = useLoader(TextureLoader, "/assets/texture2.jpg");
   const coneTexture = useLoader(TextureLoader, "/assets/alpha.png");

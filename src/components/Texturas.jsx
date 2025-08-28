@@ -29,9 +29,15 @@ const MovingCube = () => {
           map={albedoTexture}
           alphaMap={alphaTexture}
           transparent={true}
+          side={2} 
+          opacity={0.9}
+          rugosity={0.5}
+          metalness={0.5}
         />
       ))}
+      
     </mesh>
+    
   );
 };
 

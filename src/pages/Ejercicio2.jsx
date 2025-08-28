@@ -1,15 +1,22 @@
-// 📂 src/components/Scene.jsx
 import React from "react";
-import { Canvas } from "@react-three/fiber";
-import { PerspectiveCamera } from "@react-three/drei";
-import TransformBox from "../components/TransformBox";
+import Texturas from "../components/Texturas";
 
-function Ejercicio2() {
+/**
+ * Se muestra un cubo animado que rota y se desplaza, mostrando dos texturas alternadas en sus caras.
+ */
+const Ejercicio2 = () => {
   return (
-    <Canvas style={{ width: "100vw", height: "100vh" }}>
-      <PerspectiveCamera makeDefault fov={75} position={[0, 0, 3]} />
-      <TransformBox />
-    </Canvas>
+    <div style={{
+      backgroundColor: "black",
+      color: "white",
+      minHeight: "100vh",
+    }}>
+      <h3>Texturas y Animación en un Cubo</h3>
+      <div style={{ height: "500px" }}>
+        <Texturas />
+      </div>
+    </div>
   );
-}
-export default Ejercicio2;  
+};
+
+export default Ejercicio2;

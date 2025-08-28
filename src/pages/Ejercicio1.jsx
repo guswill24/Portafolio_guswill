@@ -1,17 +1,24 @@
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment } from "@react-three/drei";
-import ModeloPractica from "../components/ModeloPractica";
-import CuboInteractivo from "../components/CuboInteractivo";
-function Ejercicio1() {
+import React from "react";
+import Geometrias from "../components/geometrias";
+
+/**
+ * Se muestra la utilización de distintos tipos de geometrías en Three.js usando react-three-fiber.
+ */
+const Ejercicio1 = () => {
   return (
-    <Canvas
-      className="position-absolute w-100 h-100"
-      style={{ position: "fixed", width: "100vw", height: "100vh" }}
-      camera={{ position: [10, 5, 10], fov: 40 }}
+    <div
+      style={{
+        backgroundColor: "black",   
+        color: "white",           
+        minHeight: "100vh",      
+      }}
     >
-      <ModeloPractica />
-      <CuboInteractivo />
-      <OrbitControls enableRotate={true} />
-    </Canvas>);
-}
-export default Ejercicio1;     
+      <h3>Tipos de Geometrías en Three.js</h3>
+      <div style={{ height: "500px" }}>
+        <Geometrias />
+      </div>
+    </div>
+  );
+};
+
+export default Ejercicio1;
